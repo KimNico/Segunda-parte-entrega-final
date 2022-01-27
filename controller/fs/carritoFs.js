@@ -11,6 +11,7 @@ class CarritoController{
         try {
             let date = new Date(Date.now())
         let data =  await fs.promises.readFile(JSON.parse(`${this.url}`,'utf-8'));
+        let carrito = JSON.parse(data)
         let carritoId  = carrito.length +1;
         let newCarrito = {
             id : carritoId,
