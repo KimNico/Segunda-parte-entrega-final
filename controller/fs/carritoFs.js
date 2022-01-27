@@ -1,5 +1,6 @@
 let fs = require("fs");
-let productController = require("../fs/productoFs")
+const ProductoController = require("../fs/productoFs");
+let product = new ProductoController();
 
 class CarritoController{
     constructor(url){
@@ -56,7 +57,7 @@ class CarritoController{
             let {id} = req.params.id;
         let data = await fs.promises.readFile(`${this.url}`,'utf-8');
         let carrito = JSON.parse(data)
-        let prod = productController.getProductos(id)
+        let prod = product.getProductos(id)
         if( carrito){
             carrito.producto.push(prod);
         }
